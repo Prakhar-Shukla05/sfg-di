@@ -16,8 +16,9 @@ public class DiExamplesApplication {
         //SpringApplication.run() returns an application context
 		MyController myController= (MyController)actx.getBean("myController");
 
-		String greeting= myController.sayHello();
-		System.out.println(greeting);
+        System.out.println("--------- Primary Bean");
+
+		System.out.println(myController.getGreeting());
 
 		System.out.println("--------- Property Injected Controller");
 
