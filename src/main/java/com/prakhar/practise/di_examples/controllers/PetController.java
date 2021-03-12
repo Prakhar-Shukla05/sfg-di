@@ -1,6 +1,6 @@
 package com.prakhar.practise.di_examples.controllers;
 
-import com.prakhar.practise.di_examples.services.PetService;
+import com.prakhar.practise.pets.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller

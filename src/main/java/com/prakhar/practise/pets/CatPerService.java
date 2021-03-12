@@ -1,4 +1,4 @@
-package com.prakhar.practise.di_examples.services;
+package com.prakhar.practise.pets;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

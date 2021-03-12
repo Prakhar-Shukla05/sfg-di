@@ -1,4 +1,4 @@
-package com.prakhar.practise.di_examples.services;
+package com.prakhar.practise.pets;
 
 public interface PetService {
     String getPetType();
