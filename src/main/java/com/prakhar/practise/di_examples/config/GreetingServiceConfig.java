@@ -6,11 +6,9 @@ import com.prakhar.practise.di_examples.services.*;
 import com.prakhar.practise.pets.CatPetService;
 import com.prakhar.practise.pets.PetService;
 import com.prakhar.practise.pets.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:di-examples-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -54,7 +52,7 @@ public class GreetingServiceConfig {
         return new I18nHindiGreetingService();
     }
 
-    @Bean
+   // @Bean
     ConstructorInjecctedGreetingServiceImpl constructorInjecctedGreetingServiceImpl(){
         return new ConstructorInjecctedGreetingServiceImpl();
     }
