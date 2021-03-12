@@ -1,9 +1,6 @@
 package com.prakhar.practise.di_examples;
 
-import com.prakhar.practise.di_examples.controllers.ConstructorInjectedController;
-import com.prakhar.practise.di_examples.controllers.MyController;
-import com.prakhar.practise.di_examples.controllers.PropertyInjectedController;
-import com.prakhar.practise.di_examples.controllers.SetterInjectedController;
+import com.prakhar.practise.di_examples.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +11,11 @@ public class DiExamplesApplication {
 	public static void main(String[] args) {
 		ApplicationContext actx =SpringApplication.run(DiExamplesApplication.class, args);
         //SpringApplication.run() returns an application context
+
+		I18nController i18nController= (I18nController) actx.getBean("i18nController");
+
+		System.out.println(i18nController.getGreeting());
+		
 		MyController myController= (MyController)actx.getBean("myController");
 
         System.out.println("--------- Primary Bean");
