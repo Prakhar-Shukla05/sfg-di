@@ -12,10 +12,14 @@ public class DiExamplesApplication {
 		ApplicationContext actx =SpringApplication.run(DiExamplesApplication.class, args);
         //SpringApplication.run() returns an application context
 
+		PetController petController = actx.getBean("petController", PetController.class);
+		System.out.println("--- The Best Pet is ---");
+		System.out.println(petController.whichPetIsTheBest());
+
 		I18nController i18nController= (I18nController) actx.getBean("i18nController");
 
 		System.out.println(i18nController.getGreeting());
-		
+
 		MyController myController= (MyController)actx.getBean("myController");
 
         System.out.println("--------- Primary Bean");
