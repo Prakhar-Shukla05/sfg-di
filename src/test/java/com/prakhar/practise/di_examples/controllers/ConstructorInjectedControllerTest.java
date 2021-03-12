@@ -1,17 +1,15 @@
 package com.prakhar.practise.di_examples.controllers;
 
-import com.prakhar.practise.di_examples.services.GreetingServiceImpl;
+import com.prakhar.practise.di_examples.services.ConstructorInjecctedGreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ConstructorInjectedControllerTest {
 
     ConstructorInjectedController controller;
     @BeforeEach
     void setUp() {
-        controller = new ConstructorInjectedController(new GreetingServiceImpl());
+        controller = new ConstructorInjectedController(new ConstructorInjecctedGreetingServiceImpl());
     }
 
     @Test
