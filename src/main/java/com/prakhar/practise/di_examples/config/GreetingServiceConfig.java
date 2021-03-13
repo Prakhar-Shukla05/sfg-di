@@ -1,16 +1,30 @@
 package com.prakhar.practise.di_examples.config;
 
+import com.prakhar.practise.di_examples.datasource.FakeDataSource;
 import com.prakhar.practise.di_examples.repositories.EnglishGreetingRepository;
 import com.prakhar.practise.di_examples.repositories.EnglishGreetingRepositoryImpl;
 import com.prakhar.practise.di_examples.services.*;
-import com.prakhar.practise.pets.CatPetService;
 import com.prakhar.practise.pets.PetService;
 import com.prakhar.practise.pets.PetServiceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:di-examples-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${prakhar.username}") String username,
+                                  @Value("${prakhar.password}")String password,
+                                  @Value("${prakhar.jdbcurl}")String jdbcurl){
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcurl);
+        return fakeDataSource;
+    }
 
     @Primary
     @Bean
