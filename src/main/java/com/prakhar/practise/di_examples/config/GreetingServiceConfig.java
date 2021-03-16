@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 
-@PropertySource("classpath:datasource.properties")
+//@PropertySource("classpath:datasource.properties") Used for core Spring Framework. Can be omitted when using Spring Boot
 @ImportResource("classpath:di-examples-config.xml")
 @Configuration
 public class GreetingServiceConfig {
