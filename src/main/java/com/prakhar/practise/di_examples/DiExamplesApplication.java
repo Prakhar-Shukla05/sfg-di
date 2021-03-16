@@ -1,5 +1,6 @@
 package com.prakhar.practise.di_examples;
 
+import com.prakhar.practise.di_examples.config.ConstructorConfig;
 import com.prakhar.practise.di_examples.config.PrakharConfiguration;
 import com.prakhar.practise.di_examples.controllers.*;
 import com.prakhar.practise.di_examples.datasource.FakeDataSource;
@@ -7,6 +8,7 @@ import com.prakhar.practise.di_examples.services.PrototypeBean;
 import com.prakhar.practise.di_examples.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -73,6 +75,12 @@ public class DiExamplesApplication {
 		System.out.println(prakharConfiguration.getUsername());
 		System.out.println(prakharConfiguration.getPassword());
 		System.out.println(prakharConfiguration.getJdbcurl());
+
+		System.out.println("--------- Constructor Binding");
+		ConstructorConfig constructorConfig = actx.getBean(ConstructorConfig.class);
+		System.out.println(constructorConfig.getUsername());
+		System.out.println(constructorConfig.getPassword());
+		System.out.println(constructorConfig.getJdbcurl());
 	}
 
 }

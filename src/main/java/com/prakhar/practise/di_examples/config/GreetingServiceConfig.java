@@ -7,9 +7,10 @@ import com.prakhar.practise.di_examples.services.*;
 import com.prakhar.practise.pets.PetService;
 import com.prakhar.practise.pets.PetServiceFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
-
+@EnableConfigurationProperties(ConstructorConfig.class)
 //@PropertySource("classpath:datasource.properties") Used for core Spring Framework. Can be omitted when using Spring Boot
 @ImportResource("classpath:di-examples-config.xml")
 @Configuration
@@ -26,12 +27,21 @@ public class GreetingServiceConfig {
 //        return fakeDataSource;
 //    }
 
+//    @Bean
+//    FakeDataSource fakeDataSource(PrakharConfiguration prakharConfiguration){
+//        FakeDataSource fakeDataSource = new FakeDataSource();
+//        fakeDataSource.setUsername(prakharConfiguration.getUsername());
+//        fakeDataSource.setPassword(prakharConfiguration.getPassword());
+//        fakeDataSource.setJdbcurl(prakharConfiguration.getJdbcurl());
+//        return fakeDataSource;
+//    }
+
     @Bean
-    FakeDataSource fakeDataSource(PrakharConfiguration prakharConfiguration){
+    FakeDataSource fakeDataSource( ConstructorConfig constructorConfig){
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(prakharConfiguration.getUsername());
-        fakeDataSource.setPassword(prakharConfiguration.getPassword());
-        fakeDataSource.setJdbcurl(prakharConfiguration.getJdbcurl());
+        fakeDataSource.setUsername(constructorConfig.getUsername());
+        fakeDataSource.setPassword(constructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(constructorConfig.getJdbcurl());
         return fakeDataSource;
     }
 
