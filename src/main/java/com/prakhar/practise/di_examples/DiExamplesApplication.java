@@ -1,5 +1,6 @@
 package com.prakhar.practise.di_examples;
 
+import com.prakhar.practise.di_examples.config.PrakharConfiguration;
 import com.prakhar.practise.di_examples.controllers.*;
 import com.prakhar.practise.di_examples.datasource.FakeDataSource;
 import com.prakhar.practise.di_examples.services.PrototypeBean;
@@ -66,6 +67,12 @@ public class DiExamplesApplication {
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
+
+		System.out.println("--------- Config Props Bean");
+		PrakharConfiguration prakharConfiguration = (PrakharConfiguration) actx.getBean(PrakharConfiguration.class);
+		System.out.println(prakharConfiguration.getUsername());
+		System.out.println(prakharConfiguration.getPassword());
+		System.out.println(prakharConfiguration.getJdbcurl());
 	}
 
 }
